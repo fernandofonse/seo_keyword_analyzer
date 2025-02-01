@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Toolkit</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+      width: 400px;
+    }
+
+    h1 {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, select, button {
+      width: 100%;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #0073e6;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #005bb5;
+    }
+
+    .serp-preview {
+      margin: 10px 0;
+      padding: 10px;
+      background: #eaf4fc;
+      border: 1px solid #0073e6;
+      border-radius: 6px;
+    }
+
+    .competitor {
+      margin: 10px 0;
+      padding: 10px;
+      background: none;
+      border: 1px solid #f10808;
+      border-radius: 6px;
+    }
+
+    .my-website {
+      background: #d1e8ff;
+      border-color: #005bb5;
+    }
+
+    .competitor-title {
+      font-size: 16px;
+      color: #1a0dab;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .competitor-domain {
+      color: #006621;
+      font-size: 14px;
+      margin: 3px 0;
+    }
+
+    .competitor-description {
+      color: #545454;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .people-also-ask {
+      margin: 15px 0;
+      padding: 10px;
+      background: #f8f8f8;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .people-also-ask h3 {
+      margin-bottom: 10px;
+    }
+
+    .people-also-ask div {
+      padding: 5px 0;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .tab-container {
+      display: flex;
+      border-bottom: 2px solid #0073e6;
+      margin-bottom: 15px;
+    }
+
+    .tab-button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-weight: bold;
+      color: #5f6368;
+      transition: all 0.2s;
+    }
+
+    .tab-button.active {
+      color: #0073e6;
+      background-color: #eaf4fc;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .hidden {
+      display: none;
+    }
+    .density-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px;
+      margin: 5px 0;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .density-value {
+      color: #006621;
+      font-weight: bold;
+    }
+
+    .density-results {
+      max-height: 300px;
+      overflow-y: auto;
+      margin-top: 10px;
+    }
+
+    .toggle-button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 8px;
+      background: #f0f0f0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .toggle-button:hover {
+      background: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+  <div class="tab-container">
+    <button class="tab-button active" data-tab="rank-checker">Rank Checker</button>
+    <button class="tab-button" data-tab="keyword-density">Keyword Density</button>
+  </div>
+
+  <div id="rank-checker" class="tab-content active">
+    <h1>Rank Checker</h1>
+    <button id="toggleNumbers" class="toggle-button">Hide Position Numbers</button>
+    
+    <label for="domain">Enter Your Domain:</label>
+    <input type="text" id="domain" placeholder="e.g., example.com">
+    
+    <label for="saved-websites">Or Select a Saved Website:</label>
+    <select id="saved-websites"></select>
+    
+    <button id="save-website">Save Website</button>
+    <button id="check-rank">Check Rank</button>
+    
+    <div id="result" class="hidden"></div>
+    <div id="serp-preview" class="serp-preview hidden"></div>
+    <div id="competitors" class="hidden"></div>
+    <div id="people-also-ask" class="people-also-ask hidden"></div>
+  </div>
+
+  <div id="keyword-density" class="tab-content">
+    <h1>Keyword Density Analysis</h1>
+    <div id="density-results"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
